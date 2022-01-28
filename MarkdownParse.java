@@ -19,10 +19,15 @@ public class MarkdownParse {
             if(openParen<0) break;
             int closeParen = markdown.indexOf(")", openParen);
             if(closeParen<0) break;
-            String toTest = markdown.substring(nextOpenBracket-1,nextOpenBracket);
-            if(!toTest.equals("!")){// if statement to avoid returning an image
+            if(nextOpenBracket==0){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
-            }     
+            }
+            else{
+                String toTest = markdown.substring(nextOpenBracket-1,nextOpenBracket);
+                if(toTest.equals("!"));// if statement to avoid returning an image
+                else toReturn.add(markdown.substring(openParen + 1, closeParen));
+            } 
+            
             currentIndex = closeParen + 1;
         }
         return toReturn;

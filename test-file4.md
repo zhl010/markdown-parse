@@ -1,3 +1,2 @@
-[a link!](https://something.com)
-[another link!](some-page.html)
-[]
+![link1](page.com) 
+[normal link](www.alink.com)

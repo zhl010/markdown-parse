@@ -13,14 +13,16 @@ public class MarkdownParse {
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             if(nextOpenBracket<0) break;// to avoid infinite loop
-            if(markdown.substring(nextOpenBracket-1,nextOpenBracket).equals("!")) break;// to avoid including images
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             if(nextCloseBracket<0) break;
             int openParen = markdown.indexOf("(", nextCloseBracket);
             if(openParen<0) break;
             int closeParen = markdown.indexOf(")", openParen);
             if(closeParen<0) break;
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            String toTest = markdown.substring(nextOpenBracket-1,nextOpenBracket);
+            if(!toTest.equals("!")){// if statement to avoid returning an image
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }     
             currentIndex = closeParen + 1;
         }
         return toReturn;

@@ -18,9 +18,9 @@ public class MarkdownParseTest {
     
     @Test
     public void addition() {
-        assertEquals(2, 1 + 1);
+        assertEquals(5, 1 + 1);
     }
-
+/*
     @Test
     public void testGetLink1() throws IOException{
         file.add("www.google.com");
@@ -50,6 +50,6 @@ public class MarkdownParseTest {
         String text = readFile("test-file4.md");
         assertEquals(file, MarkdownParse.getLinks(text));
     }
-
+*/
     
 }

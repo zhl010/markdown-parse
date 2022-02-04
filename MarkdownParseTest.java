@@ -34,7 +34,6 @@ public class MarkdownParseTest {
     public void testGetLink2() throws IOException{
         file.add("https://something.com");
         file.add("some-page.html");
-        file.add("");
         String text = readFile("test-file2.md");
         assertEquals(file, MarkdownParse.getLinks(text));
     }
@@ -47,8 +46,7 @@ public class MarkdownParseTest {
 
     @Test
     public void testGetLink4() throws IOException{
-        file.add("https://something.com");
-        file.add("some-page.html");
+        file.add("www.alink.com");
         String text = readFile("test-file4.md");
         assertEquals(file, MarkdownParse.getLinks(text));
     }

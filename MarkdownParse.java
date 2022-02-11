@@ -62,6 +62,12 @@ public class MarkdownParse {
             ||markdown.charAt(nextCloseBracket+1)!='('){
                 return toReturn;
             }
+            /*
+            if(nextCloseBracket+1 != openParen){
+             currentIndex = nextCloseBracket+1;
+             continue;
+            }
+            */
             if(nextOpenBracket==0){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
                 currentIndex = closeParen + 1;

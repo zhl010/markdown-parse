@@ -1,0 +1,4 @@
+java MarkdownParse $1
+echo $1
+java MarkdownParse $2
+echo $2

@@ -15,7 +15,7 @@ public class MarkdownParseTest {
     }
     
 	
-    
+    /*
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
@@ -50,6 +50,32 @@ public class MarkdownParseTest {
         String text = readFile("test-file4.md");
         assertEquals(file, MarkdownParse.getLinks(text));
     }
+*/
+    // --- test added for content in lab report 4 ---
 
+    @Test
+    public void testGetLinkS1() throws IOException{
+        file.add("`google.com");
+        file.add("google.com");
+        file.add("ucsd.edu");
+        String text = readFile("test-sni1.md");
+        assertEquals(file, MarkdownParse.getLinks(text));
+    }
+
+    @Test
+    public void testGetLinkS2() throws IOException{
+        file.add("a.com");
+        file.add("a.com(())");
+        file.add("example.com");
+        String text = readFile("test-sni2.md");
+        assertEquals(file, MarkdownParse.getLinks(text));
+    }
+
+    @Test
+    public void testGetLinkS3() throws IOException{
+        file.add("\n    https://ucsd-cse15l-w22.github.io/\n");
+        String text = readFile("test-sni3.md");
+        assertEquals(file, MarkdownParse.getLinks(text));
+    }
     
 }

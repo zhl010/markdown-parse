@@ -60,18 +60,20 @@ public class MarkdownParse {
                 int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
                 int openParen = markdown.indexOf("(", nextCloseBracket);
                 int closeParen = markdown.indexOf(")", openParen);
-                // add to debug for lab report 4
+               
+                if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
+                    currentIndex++;
+                    continue;
+                }
+                 // add to debug for lab report 4
                 int nextNextOpenBrac = markdown.indexOf("[", openParen);
                 if(nextNextOpenBrac!=-1 && nextNextOpenBrac<closeParen){
                     currentIndex = nextNextOpenBrac;
                     continue;
                 }
 
-                if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
-                    currentIndex++;
-                    continue;
-                }
-		if (nextCloseBracket != openParen - 1) {
+                
+		        if (nextCloseBracket != openParen - 1) {
                     currentIndex = closeParen + 1;
                     continue;
                 }

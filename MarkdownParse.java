@@ -76,10 +76,10 @@ public class MarkdownParse {
                     currentIndex = closeParen + 1;
                     continue;
                 }
-                // if (!(markdown.charAt(nextOpenBracket-1) == '!')) {
-                //         toReturn.add(markdown.substring(openParen + 1, closeParen));
-                //     } 
-                try {
+                 if (nextOpenBracket ==0 || (markdown.charAt(nextOpenBracket-1) != '!')) {
+                        toReturn.add(markdown.substring(openParen + 1, closeParen));
+                     } 
+                /*try {
                     if (!(markdown.charAt(nextOpenBracket-1) == '!')) {
                         toReturn.add(markdown.substring(openParen + 1, closeParen));
                     } 
@@ -88,7 +88,7 @@ public class MarkdownParse {
                      continue;}
                    
                 
-                currentIndex = closeParen + 1;
+                currentIndex = closeParen + 1;*/
             }
         }
             return toReturn;

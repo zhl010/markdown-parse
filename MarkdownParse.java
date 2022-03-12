@@ -57,13 +57,13 @@ public class MarkdownParse {
         if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
             while(currentIndex < markdown.length()) {
                 int nextOpenBracket = markdown.indexOf("[", currentIndex);
-                int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
-                int openParen = markdown.indexOf("(", nextCloseBracket);
-                int closeParen = markdown.indexOf(")", openParen);
-               
-                if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) {
-                    break;
-                }
+            if(nextOpenBracket<0) break;// to avoid infinite loop
+            int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
+            if(nextCloseBracket<0) break;
+            int openParen = markdown.indexOf("(", nextCloseBracket);
+            if(openParen<0) break;
+            int closeParen = markdown.indexOf(")", openParen);
+            if(closeParen<0) break;
                  // add to debug for lab report 4
                 int nextNextOpenBrac = markdown.indexOf("[", openParen);
                 if(nextNextOpenBrac!=-1 && nextNextOpenBrac<closeParen){

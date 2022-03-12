@@ -76,9 +76,9 @@ public class MarkdownParse {
                     currentIndex = closeParen + 1;
                     continue;
                 }
-                 if (nextOpenBracket ==0 || (markdown.charAt(nextOpenBracket-1) != '!')) {
-                        toReturn.add(markdown.substring(openParen + 1, closeParen));
-                     } 
+                if (nextOpenBracket ==0 || (markdown.charAt(nextOpenBracket-1) != '!')) {
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                } 
                 /*try {
                     if (!(markdown.charAt(nextOpenBracket-1) == '!')) {
                         toReturn.add(markdown.substring(openParen + 1, closeParen));

@@ -77,8 +77,11 @@ public class MarkdownParse {
                     continue;
                 }
                 if (nextOpenBracket ==0 || (markdown.charAt(nextOpenBracket-1) != '!')) {
-                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                    String potentialLink = markdown.substring(openParen + 1, closeParen).trim();
+                    toReturn.add(potentialLink);
+                    
                 } 
+                currentIndex = closeParen+1;
                 /*try {
                     if (!(markdown.charAt(nextOpenBracket-1) == '!')) {
                         toReturn.add(markdown.substring(openParen + 1, closeParen));
